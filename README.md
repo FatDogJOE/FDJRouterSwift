@@ -1,0 +1,29 @@
+# FDJRouterSwift
+
+[![CI Status](https://img.shields.io/travis/likethephoenix@163.com/FDJRouterSwift.svg?style=flat)](https://travis-ci.org/likethephoenix@163.com/FDJRouterSwift)
+[![Version](https://img.shields.io/cocoapods/v/FDJRouterSwift.svg?style=flat)](https://cocoapods.org/pods/FDJRouterSwift)
+[![License](https://img.shields.io/cocoapods/l/FDJRouterSwift.svg?style=flat)](https://cocoapods.org/pods/FDJRouterSwift)
+[![Platform](https://img.shields.io/cocoapods/p/FDJRouterSwift.svg?style=flat)](https://cocoapods.org/pods/FDJRouterSwift)
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+FDJRouterSwift is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'FDJRouterSwift'
+```
+
+## Author
+
+likethephoenix@163.com, likethephoenix@163.com
+
+## License
+
+FDJRouterSwift is available under the MIT license. See the LICENSE file for more info.

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FDJRouterSwift_Example' do
+  pod 'FDJRouterSwift', :path => '../'
+
+  target 'FDJRouterSwift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
