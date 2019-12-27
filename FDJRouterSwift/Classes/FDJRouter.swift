@@ -8,16 +8,16 @@
 
 import UIKit
 
-enum PageOpenType : Int8 {
+public enum PageOpenType : Int8 {
     case unknown
     case push
     case present
     case auto
 }
 
-typealias FinishClosure = ([String : Any]?)->Void
+public typealias FinishClosure = ([String : Any]?)->Void
 
-class FDJRouter: NSObject {
+public class FDJRouter: NSObject {
     
     lazy var tabBarController : UITabBarController = {
         let tabVC = UITabBarController()

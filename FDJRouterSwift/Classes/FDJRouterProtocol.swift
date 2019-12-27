@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol FDJNavigation {
+public protocol FDJNavigation {
     
     func configNavigationBar()
     
@@ -22,15 +22,15 @@ protocol FDJNavigation {
     
 }
 
-protocol FDJTabBar {
+public protocol FDJTabBar {
     
     func configTabbar()
     
 }
 
-typealias RouterConstructor = ([String:Any]?)->FDJRouterProtocol
+public typealias RouterConstructor = ([String:Any]?)->FDJRouterProtocol
 
-protocol FDJRouterProtocol:UIViewController, FDJNavigation, FDJTabBar {
+public protocol FDJRouterProtocol:UIViewController, FDJNavigation, FDJTabBar {
 
     init(params:[String:Any]?)
     
