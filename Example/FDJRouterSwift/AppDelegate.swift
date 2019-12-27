@@ -16,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FDJRouter.instance.register(url: "https://www.router.com/path1", constructor: TestController1.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path2", constructor: TestController2.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path3", constructor: TestController3.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path1/path4", constructor: TestController4.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path2/path5", constructor: TestController5.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path3/path6", constructor: TestController6.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path1/path4/path7", constructor: TestController7.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path2/path5/path8", constructor: TestController8.constructor)
+        FDJRouter.instance.register(url: "https://www.router.com/path3/path6/path9", constructor: TestController9.constructor)
+        
+        FDJRouter.instance.setupRootPages(rootURLs: ["https://www.router.com/path1","https://www.router.com/path2","https://www.router.com/path3"])
+        self.window?.rootViewController = FDJRouter.instance.tabBarController
+        
         return true
     }
 

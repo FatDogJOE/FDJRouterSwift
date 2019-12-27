@@ -1,0 +1,6 @@
+framework module FDJRouterSwift {
+  umbrella header "FDJRouterSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
