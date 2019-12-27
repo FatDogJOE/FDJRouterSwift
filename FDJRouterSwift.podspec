@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FDJRouterSwift'
-  s.version          = '0.1.0-beta.5'
+  s.version          = '0.1.0-beta.4'
   s.summary          = '一个可以处理页面之间传值的Router(Swift版本)'
 
 # This description is used to generate tags and improve search results.
