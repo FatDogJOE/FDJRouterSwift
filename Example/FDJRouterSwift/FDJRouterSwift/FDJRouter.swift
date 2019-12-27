@@ -29,7 +29,7 @@ open class FDJRouter: NSObject {
         return [String:RouterConstructor]()
     }()
     
-    static let instance : FDJRouter = { return FDJRouter() }()
+    open static let instance : FDJRouter = { return FDJRouter() }()
     
     public func register(url:String, constructor:@escaping RouterConstructor) {
         self.constructors[url] = constructor

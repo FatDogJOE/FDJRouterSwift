@@ -17,7 +17,7 @@ public enum PageOpenType : Int8 {
 
 public typealias FinishClosure = ([String : Any]?)->Void
 
-public class FDJRouter: NSObject {
+open class FDJRouter: NSObject {
     
     lazy var tabBarController : UITabBarController = {
         let tabVC = UITabBarController()
@@ -29,7 +29,7 @@ public class FDJRouter: NSObject {
         return [String:RouterConstructor]()
     }()
     
-    static let instance : FDJRouter = { return FDJRouter() }()
+    open static let instance : FDJRouter = { return FDJRouter() }()
     
     public func register(url:String, constructor:@escaping RouterConstructor) {
         self.constructors[url] = constructor
@@ -152,33 +152,33 @@ public class FDJRouter: NSObject {
 }
 
 extension FDJRouter : UITabBarControllerDelegate {
-    func tabBarControllerSupportedInterfaceOrientations(_ tabBarController: UITabBarController) -> UIInterfaceOrientationMask {
+    open func tabBarControllerSupportedInterfaceOrientations(_ tabBarController: UITabBarController) -> UIInterfaceOrientationMask {
         return tabBarController.selectedViewController?.supportedInterfaceOrientations ?? .portrait
     }
         
-    func tabBarControllerPreferredInterfaceOrientationForPresentation(_ tabBarController: UITabBarController) -> UIInterfaceOrientation {
+    open func tabBarControllerPreferredInterfaceOrientationForPresentation(_ tabBarController: UITabBarController) -> UIInterfaceOrientation {
         return tabBarController.selectedViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
     }
 }
 
 extension FDJRouter : UINavigationControllerDelegate {
     
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         if let routerVC = viewController as? FDJRouterProtocol {
             routerVC.configNavigationBar()
         }
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         
     }
     
-    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+    open func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
         return navigationController.topViewController?.supportedInterfaceOrientations ?? .portrait
     }
     
-    func navigationControllerPreferredInterfaceOrientationForPresentation(_ navigationController: UINavigationController) -> UIInterfaceOrientation {
+    open func navigationControllerPreferredInterfaceOrientationForPresentation(_ navigationController: UINavigationController) -> UIInterfaceOrientation {
         return navigationController.topViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
     }
     
