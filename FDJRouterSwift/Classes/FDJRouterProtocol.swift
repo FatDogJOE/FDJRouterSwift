@@ -45,7 +45,7 @@ public protocol FDJRouterProtocol:UIViewController, FDJNavigation, FDJTabBar {
 
 extension FDJRouterProtocol where Self:UIViewController {
     
-    var pageUrl : String {
+    public var pageUrl : String {
         set {
             let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "PageUrl".hashValue)
             objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
@@ -61,7 +61,7 @@ extension FDJRouterProtocol where Self:UIViewController {
         }
     }
     
-    var openType : PageOpenType {
+    public var openType : PageOpenType {
         set {
             let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "PageOpenType".hashValue)
             objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
@@ -78,7 +78,7 @@ extension FDJRouterProtocol where Self:UIViewController {
         }
     }
     
-    static var constructor : RouterConstructor {
+    public static var constructor : RouterConstructor {
         get {
             return { (params) -> FDJRouterProtocol in
                 return Self(params: params)
@@ -86,7 +86,7 @@ extension FDJRouterProtocol where Self:UIViewController {
         }
     }
     
-    func preferredPresentationStyle() -> UIModalPresentationStyle {
+    public func preferredPresentationStyle() -> UIModalPresentationStyle {
         if #available(iOS 13.0, *) {
             return .automatic
         }else {
@@ -97,20 +97,22 @@ extension FDJRouterProtocol where Self:UIViewController {
 
 extension FDJNavigation where Self:UIViewController {
     
-    func configNavigationBar() {
+    public func configNavigationBar() {
         
     }
     
-    func close(info:[String:Any]?) {
-        self.navigationController?.closeClosure?(info)
+    public func close(info:[String:Any]?) {
+        self.dismiss(animated: true) {
+            self.navigationController?.closeClosure?(info)
+        }
     }
     
-    func back(info:[String:Any]?) {
-        self.closeClosure?(info)
+    public func back(info:[String:Any]?) {
         self.navigationController?.popViewController(animated: true)
+        self.closeClosure?(info)
     }
     
-    func backToURL(url:String) {
+    public func backToURL(url:String) {
         
         for vc in self.navigationController?.viewControllers ?? [] {
             
@@ -128,7 +130,7 @@ extension FDJNavigation where Self:UIViewController {
 
 extension FDJTabBar where Self:UIViewController {
     
-    func configTabbar() {
+    public func configTabbar() {
         
     }
     
@@ -136,7 +138,7 @@ extension FDJTabBar where Self:UIViewController {
 
 extension UIViewController {
     
-    var closeClosure : FinishClosure? {
+    public var closeClosure : FinishClosure? {
         
         set {
             let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "CloseClosure".hashValue)
@@ -158,5 +160,9 @@ extension UIViewController {
 
 class FDJNavigationController : UINavigationController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
+    }
 }
 

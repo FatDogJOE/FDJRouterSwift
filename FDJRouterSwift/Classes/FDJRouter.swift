@@ -19,7 +19,7 @@ public typealias FinishClosure = ([String : Any]?)->Void
 
 open class FDJRouter: NSObject {
     
-    lazy var tabBarController : UITabBarController = {
+    public lazy var tabBarController : UITabBarController = {
         let tabVC = UITabBarController()
         tabVC.delegate = self
         return tabVC
